@@ -1,0 +1,7 @@
+<h2>Products</h2>
+<app-product-card
+  [products]="products"
+  (addToCart)="onAddToCart($event)"
+></app-product-card>
+<p>Getting value from Child component using Output</p>
+<h3>Added to Cart : {{product.name}}</h3>

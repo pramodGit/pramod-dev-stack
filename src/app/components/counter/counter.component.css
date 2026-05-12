@@ -1,0 +1,13 @@
+.counter {
+  text-align: center;
+  margin-top: 40px;
+}
+select {
+  margin: 10px;
+  padding: 5px;
+}
+.buttons button {
+  padding: 8px 18px;
+  margin: 5px;
+  font-size: 16px;
+}

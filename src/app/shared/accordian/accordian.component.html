@@ -1,0 +1,20 @@
+<div class="accordion">
+  <div *ngFor="let item of items; let i = index" class="accordion-item">
+    <button class="accordion-question" (click)="toggle(i)" [class.active]="isOpen(i)">
+      {{ item.question }}
+      <span class="arrow">
+        <i [ngClass]="isOpen(i) ? 'arrow-up' : 'arrow-down'"></i>
+      </span>
+    </button>
+    <div class="accordion-answer" [style.height]="isOpen(i) ? 'auto' : '0px'" [style.overflow]="'hidden'">
+      <ng-container *ngIf="isArray(item.answer); else singleAnswer">
+        <ul>
+          <li *ngFor="let ans of item.answer" [innerHTML]="sanitize(ans)"></li>
+        </ul>
+      </ng-container>
+      <ng-template #singleAnswer>
+        <p [innerHTML]="sanitize(item.answer)"></p>
+      </ng-template>
+    </div>
+  </div>
+</div>

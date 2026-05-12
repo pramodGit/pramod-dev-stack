@@ -1,0 +1,9 @@
+<ul class="to-do">
+  @for(todo of todos; track $index) {
+    <li>{{todo}} <button (click)="updateTodoList($index, 'delete', todo)">Delete</button></li>
+  }
+</ul>
+<form class="todo-form" (submit)="addTodoList(this)">
+  <input type="text" [(ngModel)]="newTodo" />
+  <button type="submit">Add Todo</button>
+</form>

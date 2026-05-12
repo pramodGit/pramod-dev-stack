@@ -1,0 +1,10 @@
+<div class="wrapper">
+    <ul id="accordian">
+        @for (item of data; track trackByUserId) {
+        <li toggle>
+            <a href="javascript:void(0)" (click)="handleEvent($event)">{{item.title}}</a>
+            <p>{{item.description}}</p>
+        </li>
+        }
+    </ul>
+</div>

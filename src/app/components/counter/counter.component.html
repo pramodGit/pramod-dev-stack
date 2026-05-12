@@ -1,0 +1,12 @@
+<div class="counter">
+  <h2>Counter: {{ count }}</h2>
+  <label for="step">Step: </label>
+  <select [(ngModel)]="step" id="step">
+    <option *ngFor="let s of steps" [value]="s">{{ s }}</option>
+  </select>
+  <div class="buttons">
+    <button (click)="decrement()">-</button>
+    <button (click)="increment()">+</button>
+    <button (click)="reset()">Reset</button>
+  </div>
+</div>
