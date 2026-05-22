@@ -1,0 +1,116 @@
+
+[
+    {
+        "question": "What is the Node.js event loop?",
+        "answer": "The event loop is the core mechanism that allows Node.js to perform asyncronous and non-blocking I/O operations."
+    },
+    {
+        "question": "How does Node.js event loop work?",
+        "answer": [
+            "It uses an event-driven architecture.",
+            "The loop has phases (timers, I/O callbacks, idle, poll, check, close callbacks) and processes callbacks from the event queue, enabling asynchronous behavior in a single-threaded environment."
+        ]
+    },
+    {
+        "question": "How the Event Loop Prioritizes Tasks:",
+        "answer": [
+            "Main Call Stack Execution: The JavaScript engine starts by executing synchronous code on the call stack.",
+            "Async Operations (Promises, timers, I/O): When it encounters an async task (like fetch(), setTimeout, or a Promise), the task is offloaded to the Node.js runtime (libuv, worker threads, etc.).",
+            "When the Call Stack is Empty: Once all the synchronous code is done and the call stack is empty, the event loop kicks in and starts checking for pending tasks.",
+            "Execution Order:",
+            "Microtasks (Promises, async/await) are processed first — they go into the Microtask Queue.",
+            "After the microtasks are cleared, the event loop picks the next task from the Macrotask Queue (e.g., setTimeout, setImmediate, I/O callbacks)."
+        ]
+    },
+    {
+        "question": "What is Express",
+        "answer": "Express.js is a web application framework built on top of Node.js. It simplifies server creation by abstracting the http module and adding features like routing, middleware, and more."
+    },
+    {
+        "question": "What is middleware in Express.js?",
+        "answer": [
+            "Middleware are functions that execute in the request/response cycle. They can:",
+            "Modify req or res",
+            "End the request",
+            "Call next() to pass control"
+        ]
+    },
+    {
+        "question": "What is Cluster in Node?",
+        "answer": [
+            "Node.js runs single-threaded programming which means it uses single CPU core, so it is memory efficient.",
+            "The cluster module allows you to create child processes that run on their own threads.",
+            "The built-in cluster module lets you spawn multiple Node.js processes (workers) that can handle requests in parallel while sharing the same server port, enabling you to fully utilize a machine's CPU cores.",
+            "The cluster module creates multiple copies of the same application to handle more load.",
+            "The cluster module uses a load balancer to distribute requests among worker processes."
+        ]
+    },
+    {
+        "question": "process.nextTick(), setImmediate(), and setTimeout()?",
+        "answer": [
+            "process.nextTick() runs before the event loop continues.",
+            "setImmediate() runs after the I/O phase of the event loop.",
+            "setTimeout() runs after at least the specified delay, but actual timing depends on the event loop."
+        ]
+    },
+    {
+        "question": "Handle uncaught exceptions and unhandled promise rejections",
+        "answer": [
+            "process.on('uncaughtException', err => {...});",
+            "process.on('unhandledRejection', reason => {...});",
+            "But these are global fallbacks. Proper error handling in each async block and try-catch for async/await is better."
+        ]
+    },
+    {
+        "question": "What are streams in Node.js and when would you use them?",
+        "answer": "Streams are used to process data in chunks (e.g., reading/writing files, handling requests) to improve performance and memory usage."
+    },
+    {
+        "question": "Explain the role of the V8 engine in Node.js.",
+        "answer": "V8 is Google’s JavaScript engine (used in Chrome) that compiles JS into machine code. Node.js uses V8 for fast JS execution and extends it with APIs (like file system, network) via C++ bindings."
+    },
+    {
+        "question": "Common memory leaks in Node.js and how to detect them?",
+        "answer": [
+            "Event listeners not removed",
+            "Closures holding large objects",
+            "Global variables",
+            "Caches that grow without limit",
+            "Use --inspect, heapdump, and Chrome DevTools for memory profiling."
+        ]
+    },
+    {
+        "question": "What are worker threads and when would you use them over clustering or child processes?",
+        "answer": "Worker threads allow running CPU-intensive JS code in parallel. Unlike child processes, workers share memory. Use for tasks like image processing or cryptographic operations without blocking the main thread."
+    },
+    {
+        "question": "Whai is PM2?",
+        "answer": [
+            "PM2 is a process manager for Node.js that handles:",
+            "Clustering (with load balancing)",
+            "Automatic restarts on failure",
+            "Log management",
+            "Memory monitoring",
+            "Cluster Mode with PM2:",
+            "pm2 start app.js -i max  # Spawn processes equal to CPU cores"
+        ]
+    },
+    {
+        "question": "Horizontal Scaling (Across Servers)",
+        "answer": [
+            "Once a single machine is maxed out, you scale horizontally:",
+            "Using Docker + Load Balancer:",
+            "Run multiple instances of your Node.js app in Docker containers",
+            "Use Kubernetes, Docker Swarm, or AWS ECS to manage and scale them",
+            "Place a load balancer (e.g., NGINX, HAProxy, AWS ELB) in front to distribute traffic"
+        ]
+    },
+    {
+        "question": "Horizontal Scaling needs Stateless Design",
+        "answer": [
+            "To scale horizontally, make your Node app stateless:",
+            "Avoid storing session or user data in memory",
+            "Use Redis, database, or JWT for state management"
+        ]
+    }
+]
