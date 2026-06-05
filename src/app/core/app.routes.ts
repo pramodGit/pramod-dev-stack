@@ -9,7 +9,7 @@ export const routes: Routes = [
     { path: ':category', loadComponent: () => import('../components/qa/qa.component').then(m => m.QuestionsAnswers)},
     // Default to angular if path is empty
     { path: '', redirectTo: 'angular', pathMatch: 'full' },
-    { path: 'counterComponent', loadComponent: () => import('../components/counter/counter.component').then(m => m.CounterComponent)},
-    { path: 'componentCommunication', loadComponent: () => import('../components/communication/product.component').then(m => m.ProductComponent)},
+    { path: 'angular/counterComponent', loadComponent: () => import('../components/counter/counter.component').then(m => m.CounterComponent)},
+    { path: 'angular/componentCommunication', loadComponent: () => import('../components/communication/product.component').then(m => m.ProductComponent)},
     { path: '**', component: NotFoundComponent }
 ];

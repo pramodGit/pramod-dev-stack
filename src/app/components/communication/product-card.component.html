@@ -5,7 +5,7 @@
 </div> -->
 <div class="container">
     <div class="product-list">
-        <h4>Products from Input</h4>
+        <h4>Products from  @Input()</h4>
         <ul *ngIf="products.length > 0; else emptyList">
             <li *ngFor="let product of products">
                 <div class="card">
@@ -21,7 +21,7 @@
         </ng-template>
     </div>
     <div class="product-list">
-        <h4>Products from Service</h4>
+        <h4>Products from @Service</h4>
         <ul *ngIf="productsFromService.length > 0; else noProducts">
             <li *ngFor="let product of productsFromService">
                 <div class="card">

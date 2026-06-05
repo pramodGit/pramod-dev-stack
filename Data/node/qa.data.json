@@ -112,5 +112,13 @@
             "Avoid storing session or user data in memory",
             "Use Redis, database, or JWT for state management"
         ]
+    },
+    {
+        "question": "npx install vs npm install",
+        "answer": [
+            "The core difference is that npm is a tool for managing packages (installing, updating, and deleting them), while npx is a tool for executing packages without needing to install them permanently.",
+            "<h4>When to Use Which</h4><p>Use npm install when you need a package to be part of your project long-term. This includes dependencies required for the app to function or tools you use daily.</p><p>Use npx for one-time tasks or 'trying out' a tool. It keeps your global environment clean by preventing the buildup of rarely used packages.</p>",
+            "<h4>Practical Example: React</h4><p><strong>With npm:</strong> You would have to install the generator globally first: npm install -g create-react-app, and then run it: create-react-app my-app.</p><p><strong>With npx:</strong> You run a single command: npx create-react-app my-app. This downloads the tool, runs it to build your app, and then clears the tool's space. <p>npx expo install expo-font</p>"
+        ]
     }
 ]
