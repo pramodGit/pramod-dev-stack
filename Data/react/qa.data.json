@@ -2,9 +2,9 @@
     {
         "question": "Coding Exercise",
         "answer": [
-            "<a href='http:dev.pramod.click/react/counterWithStep'>Counter with Step Control</a>",
-            "<a href='http:dev.pramod.click/react/searchFilterHighlight'>Search filtering and conditional rendering</a>",
-            "<a href='http:dev.pramod.click/react/loginForm'>Controlled Form with Live Validation</a>"
+            "<a href='http://dev.react.pramod.click/counterWithStep' target='_blank'>Counter with Step Control</a>",
+            "<a href='http://dev.react.pramod.click/searchFilterHighlight'>Search filtering and conditional rendering</a>",
+            "<a href='http://dev.react.pramod.click/loginForm'>Controlled Form with Live Validation</a>"
         ]
     },
     {
