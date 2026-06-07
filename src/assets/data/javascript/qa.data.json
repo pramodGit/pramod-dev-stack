@@ -1,0 +1,39 @@
+
+[
+    {
+        "question": "Coding Exercises",
+        "answer": [
+            "<a href='javascript/promiseAsync'>Promise and Async await</a>",
+            "<a href='javascript/asyncPromiseAll'>Async await vs Promise.all</a>"
+        ]
+    },
+    {
+        "question": "What is JavaScript ?",
+        "answer": "JavaScript is a loosely typed language, meaning variables are defined and their types are determined at runtime. Unlike dynamic typing, where types are determined at runtime, static typing allows TypeScript to catch type-related errors early during development, improving code quality and reducing bugs."
+    },
+    {
+        "question": "What is Memoization?",
+        "answer": "Memoization is a smart way to make your functions faster by storing and reusing their past results."
+    },
+    {
+        "question": "When to Use ==> !!?",
+        "answer": [
+            "Use !! only when you truly need a boolean value.",
+            "When converting a truthy/falsy value into a boolean explicitly."
+        ]
+    },
+    {
+        "question": "Purpose of 'unknown' type in typescript",
+        "answer": [
+            "In TypeScript, the unknown type is used to represent a value that could be any type, but unlike any, it forces you to perform type-checking before doing anything with the value.",
+            "It's safer than any because it requires you to narrow the type before use. Forces type checks before usage."
+        ]
+    },
+    {
+        "question": "What is Closure ?",
+        "answer": [
+            "A closure is a function that retains access to its lexical scope even when the outer function is executed.",
+            "Closures are created every time a function is created."
+        ]
+    }
+]

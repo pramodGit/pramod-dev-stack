@@ -43,13 +43,25 @@ export class QuestionsAnswers implements OnInit {
   }
 
   private loadData(category: string) {
-    // Maps "angular" to "angular/qa.data.json"
-    const formattedCategory = category.charAt(0) + category.slice(1);
+    // 1. Match your folder's exact casing ('data' vs 'Data')
+    // Look at your file tree: if you named it lowercase 'data', use lowercase here.
+    const formattedCategory = category.toLowerCase(); 
+    
+    // 2. FIXED: Use a relative path starting with 'assets/'
+    const devUrl = `assets/data/${formattedCategory}/qa.data.json`;
     const s3Url = `https://s3.ap-south-1.amazonaws.com/pramod.click/data/${formattedCategory}/qa.data.json`;
 
-    this.http.get<AccordionItem[]>(s3Url).subscribe({
-      next: (res: AccordionItem[]) => this.rawData.set(res), // Add : AccordionItem[]
-      error: (err: any) => console.error('S3 Fetch Error:', err) // Add : any
+    // 3. Angular will seamlessly resolve this to http://localhost:4200/assets/...
+    this.http.get<AccordionItem[]>(devUrl).subscribe({
+      next: (res: AccordionItem[]) => this.rawData.set(res),
+      error: (err: any) => {
+        console.warn('Local asset not found, trying S3 fallback...', err);
+        
+        this.http.get<AccordionItem[]>(s3Url).subscribe({
+          next: (s3Res) => this.rawData.set(s3Res),
+          error: (s3Err) => console.error('S3 Fetch Error:', s3Err)
+        });
+      }
     });
   }
 }

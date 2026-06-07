@@ -1,0 +1,8 @@
+.css-grid {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
+.css-grid-content { 
+    display: flexbox;
+    padding: 2rem;
+}

@@ -1,0 +1,18 @@
+.boxStyle {
+  background: #4CAF50;
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 5px;
+  min-width: 60px;
+}
+
+.containerStyle {
+  display: flex;
+  justify-content: justify;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border: 2px dashed #ccc;
+  background: #f9f9f9;
+}
