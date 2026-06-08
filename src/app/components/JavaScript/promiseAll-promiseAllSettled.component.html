@@ -1,0 +1,27 @@
+<a routerLink="/javascript">Back</a>
+<h2>Async Functions concurrently Using Promise.all & Promise.allSettled</h2>
+
+<h3>Created three promises with success response</h3>
+<pre><code [textContent]="codeSnippet1"></code></pre>
+
+<h3>Now Run all simulated endpoints concurrently with Promise.all</h3>
+<pre><code [textContent]="codeSnippet2"></code></pre>
+
+<h3>All promises has success response as shown below:</h3>
+<pre><code [textContent]="codeSnippet3"></code></pre>
+
+<h3>If set one Promise to send error response as shown below:</h3>
+<pre>
+    <code [textContent]="codeSnippet4"></code>
+    <code><h4>Output of the same promise.all:</h4></code>
+    <code>At least one request failed: Cart service failed</code>
+</pre>
+
+<h3>But allSettled provides better response object which is easy to handle in both cases</h3>
+<pre>
+    <code [textContent]="codeSnippet5"></code>
+    <code><h4>Output With error : </h4></code>
+    <code [textContent]="codeSnippet6"></code>
+    <code><h4>Output Without any error ie., success : </h4></code>
+    <code [textContent]="codeSnippet7"></code>
+</pre>
