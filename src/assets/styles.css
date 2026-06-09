@@ -42,7 +42,7 @@ header nav a:not(:first-child):hover {
   color: #000;
   background-color: #d2dcff;
   border-radius: .6rem;
-  /* border: solid 1px #afafaf; */
+  border: 1px dashed #000;
 }
 header nav a:first-child { margin: 4px 15px 0 0; }
 header nav .theme {
