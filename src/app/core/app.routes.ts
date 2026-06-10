@@ -16,6 +16,7 @@ export const routes: Routes = [
     { path: 'javascript/promiseAsync', loadComponent: () => import('../components/JavaScript/promiseAsync.component').then(m => m.PromiseAsync)},
     { path: 'javascript/asyncPromiseAll', loadComponent: () => import('../components/JavaScript/asyncPromiseAll.component').then(m => m.AsyncPromiseAll)},
     { path: 'javascript/promiseAllSettled', loadComponent: () => import('../components/JavaScript/promiseAll-promiseAllSettled.component').then(m => m.PromiseAllSettled)},
+    { path: 'javascript/jsHOC', loadComponent: () => import('../components/JavaScript/jsHOC.component').then(m => m.jsHOCComponent)},
     
     // 2. PLACED LOWER: Dynamic parameter catchall
     { path: ':category', loadComponent: () => import('../components/qa/qa.component').then(m => m.QuestionsAnswers)},

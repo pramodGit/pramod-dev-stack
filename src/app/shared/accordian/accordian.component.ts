@@ -18,7 +18,7 @@ export default class AccordionComponent implements AfterViewInit {
   ) {}
   
   @Input() items: AccordionItem[] = [];
-  openIndex: number | null = null;
+  openIndex: number | null = 0;
 
   sanitize(html: string | string[]): SafeHtml {
     if (Array.isArray(html)) {

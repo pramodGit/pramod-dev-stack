@@ -5,7 +5,8 @@
         "answer": [
             "<a href='javascript/promiseAsync'>Promise and Async await</a>",
             "<a href='javascript/asyncPromiseAll'>Async await vs Promise.all</a>",
-            "<a href='javascript/promiseAllSettled'>Promise.all vs Promise.allSettled</a>"
+            "<a href='javascript/promiseAllSettled'>Promise.all vs Promise.allSettled</a>",
+            "<a href='javascript/jsHOC'>JavaScript Higher Order Functions</a>"
         ]
     },
     {
