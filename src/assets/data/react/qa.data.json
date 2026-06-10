@@ -148,10 +148,10 @@
         "question": "React 19 top exciting features",
         "answer": [
             "React Compiler: Say goodbye to manually wrapping everything in useMemo or useCallback. The open-source compiler automatically analyzes your code and optimizes re-renders behind the scenes, leaving you with cleaner, distraction-free code.",
-            "Better Form Actions: React 19 introduces built-in Actions. You can now pass async functions directly to the form action={...} prop to automatically manage pending states, handle errors, and reset forms.",
+            "Better Form Actions: React 19 introduces built-in Actions. You can now pass async functions directly to the &lt;form action={...}&gt; prop to automatically manage pending states, handle errors, and reset forms.",
             "<h5>New Hooks</h5><ul><li>useOptimistic: Lets you update your UI immediately based on a user's action while waiting for server confirmation in the background.</li><li>useFormStatus & useActionState: Make building and displaying loading spinners for form submissions incredibly easy.</li><li>use: A revolutionary new API that allows you to unwrap Promises directly inside the render function without the traditional strict constraints of hooks.</li></ul>",
             "Goodbye forwardRef: ref is now treated as a standard prop. You can pass refs directly into function components without the boilerplate of forwardRef",
-            "Easy Metadata and Document Head: You can now render tags like <title>, <meta>, and <link> directly in your child components. React will automatically extract and hoist them to the <head> of your HTML.",
+            "Easy Metadata and Document Head: You can now render tags like &lt;title&gt;, &lt;meta&gt;, and &lt;link&gt; directly in your child components. React will automatically extract and hoist them to the <head> of your HTML.",
             "Activity & View Transitions: React features an experimental <Activity> component to preserve UI state when components are hidden, and integrates with the browser's ViewTransition API for smooth, native-like navigation animations",
             "Clearer Hydration Errors: Debugging Server-Side Rendering (SSR) is much less painful, as React now provides a single, easy-to-read error message for mismatches instead of cryptic waterfalls of warnings."
 		]
