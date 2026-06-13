@@ -1,0 +1,54 @@
+<section class="css-grid-content">
+    <a routerLink="/css">Back</a>
+    <h2>Grid :: Repeat Auto-Fit MinMax Pattern</h2>
+    <pre><code>grid-template-columns: repeat(count, track-size);</code></pre>
+    <h3>1. grid-template-columns</h3>
+    <p>Defines how many columns the grid should have and their widths. Creates 2 columns of 200px each.</p>
+    <pre><code>grid-template-columns: 200px 200px;</code></pre>
+    <h4>For single-column layout</h4>
+    <pre><code>grid-template-columns: 1fr;</code></pre>
+    <h3>2. repeat()</h3>
+    <h4>Instead of writing columns manually:</h4>
+    <pre><code>grid-template-columns: 1fr 1fr 1fr;</code></pre>
+    <h4>We can write:</h4>
+    <pre><code>grid-template-columns: repeat(3, 1fr);</code></pre>
+    <h3>3. auto-fit</h3>
+    <p>Grid automatically determines how many columns can fit in the available space.</p>
+    <pre><code>grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));</code></pre>
+    <h4>Container width = 1000px</h4>
+    <pre><code>250 + 250 + 250 + 250 = 1000</code></pre>
+    <h4>Result:</h4>
+    <pre><code>
+        +------+ +------+
+        | Item | | Item |
+        +------+ +------+
+    </code></pre>
+    <p>Grid automatically adjusts.</p>
+    <h3>4. minmax(250px, 1fr)</h3>
+    <pre><code>minmax(MINIMUM_WIDTH, MAXIMUM_WIDTH)</code></pre>
+    <h4>Meaning:</h4>
+    <ul>
+        <li>Never shrink below 250px</li>
+        <li>Grow to fill available space</li>
+    </ul>
+    <pre>
+        <code>
+            Desktop:
+            +------+ +------+ +------+
+            | Item | | Item | | Item |
+            +------+ +------+ +------+
+        </code>
+        <code>
+            Tablet:
+            +------+ +------+
+            | Item | | Item |
+            +------+ +------+
+        </code>
+        <code>
+            Mobile:
+            +------+
+            | Item |
+            +------+
+        </code>
+    </pre>
+</section>

@@ -1,0 +1,44 @@
+<section class="css-grid-content">
+    <span><a routerLink="/css" routerLinkActive="active">Back</a></span>
+    <h3>min(value1, value2) is a CSS function that chooses the smaller of two values.</h3>
+    <pre><code>width: min(70ch, 100%);</code></pre>
+    <h3>means:</h3>
+    <h4>Use 70ch, unless that's wider than 100% of the available space. In that case, use 100%.</h4>
+    <h3>Why use it?</h3>
+    <h4>Suppose you're styling article content:</h4>
+    <ul>
+        <li>
+            <strong>On a large screen:</strong>
+            <ul>
+                <li>70ch might be ~700px</li>
+                <li>100% might be 1200px</li>
+                <li>Smaller value = 70ch</li>
+                <li><strong>Result:</strong> readable line length</li>
+            </ul>
+        </li>
+        <li>
+            <strong>On a small phone:</strong>
+            <ul>
+                <li>70ch might be ~700px</li>
+                <li>100% might be 360px</li>
+                <li>Smaller value = 100%</li>
+                <li><strong>Result:</strong> content doesn't overflow</li>
+            </ul>
+        </li>
+    </ul>
+    <h3>Compared to max-width</h3>
+    <h4>These are often similar:</h4>
+    <pre><code>width: min(70ch, 100%);</code></pre>
+    <pre><code>width: 100%; max-width: 70ch;</code></pre>
+    <h4>Both keep the content from exceeding 70ch while allowing it to shrink on smaller screens.</h4>
+    <h3>In the grid example</h3>
+    <pre><code>grid-template-columns: 1fr min(70ch, 100%) 1fr;</code></pre>
+    <h4>This creates three columns:</h4>
+    <pre><code>| 1fr | content | 1fr |</code></pre>
+    <h4>where the center content column is:</h4>
+    <ul>
+        <li>at most 70ch wide</li>
+        <li>but can shrink to fit smaller screens</li>
+    </ul>
+    <p>This is a modern way to create a centered reading column with flexible margins on both sides.</p>
+</section>

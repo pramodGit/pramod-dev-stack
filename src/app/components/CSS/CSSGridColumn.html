@@ -1,0 +1,30 @@
+<section class="css-grid-content">
+    <span><a routerLink="/css" routerLinkActive="active">Back</a></span>
+    <h3>In a n-column grid, there are total (n + 1) vertical lines.</h3>
+    <p>The grid-column property dictates where an element starts, ends, or how many columns it spans across the grid.</p>
+    <p>It is a shorthand for grid-column-start and grid-column-end.</p>
+    <h4>In CSS Grid, grid-column can work like a table's colspan.</h4>
+    <h4>If you have 4 columns:</h4>
+    <pre><code>display: grid; grid-template-columns: 1fr 1fr 1fr 1fr;</code></pre>
+    <h4>The grid lines look like:</h4>
+    <pre><code>| 1 | col1 | 2 | col2 | 3 | col3 | 4 | col4 | 5 |</code></pre>
+    <h4>Take the 2 center columns (columns 2 and 3)</h4>
+    <pre><code>grid-column: 2 / 4</code></pre>
+    <h4>This means:</h4>
+    <ul>
+        <li>Start at grid line 2</li>
+        <li>End at grid line 4</li>
+    </ul>
+    <h4>Result:</h4>
+    <pre><code>| col1 | [ item spans col2 + col3 ] | col4 |</code></pre>
+    <h4>Equivalent using span</h4>
+    <pre><code>grid-column: 2 / span 2;</code></pre>
+    <h5>Start at column 2 and span 2 columns.</h5>
+    <h4>Span one column</h4>
+    <pre><code>grid-column: 2;</code></pre>
+    <h4>Span two columns</h4>
+    <pre><code>grid-column: 2 / 4;</code></pre>
+    <h4>Span all four columns</h4>
+    <pre><code>grid-column: 1 / -1;</code></pre>
+    <h5>-1 means the last grid line.</h5>
+</section>

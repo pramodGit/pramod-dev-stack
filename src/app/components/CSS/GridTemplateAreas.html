@@ -1,0 +1,41 @@
+<section class="css-grid-content">
+    <span><a routerLink="/css" routerLinkActive="active">Back</a></span>
+    <h3>Layout:</h3>
+
+    <section class="grid-template-areas">
+        <header>Header</header>
+        <aside class="grid-template-areas">Sidebar</aside>
+        <main>Main Content</main>
+        <footer>Footer</footer>
+    </section>
+
+    <h4>CSS:</h4>
+    <pre><code>{{ cssCode }}</code></pre>
+    <h4>HTML:</h4>
+    <pre><code>{{ htmlCode }}</code></pre>
+
+    <h3>If we want to change the sidebar position</h3>
+    <h4>Need to change 2 things:</h4>
+    <h4>1. Change the position of "sidebar main"</h4>
+    <pre>
+        <code>
+            grid-template-areas:
+                "header header"
+                "sidebar main"
+                "footer footer";
+        </code>
+    </pre>
+    <h4>2. Change the width according to defined position:</h4>
+    <pre>
+        <code>
+            grid-template-columns: 1fr 3fr;
+        </code>
+    </pre>
+    <h3>Final Output:</h3>
+    <section class="grid-template-areas one">
+        <header>Header</header>
+        <aside class="grid-template-areas">Sidebar</aside>
+        <main>Main Content</main>
+        <footer>Footer</footer>
+    </section>
+</section>

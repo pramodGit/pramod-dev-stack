@@ -1,0 +1,27 @@
+.grid-template-areas {
+  display: grid;
+  grid-template-columns: 3fr 1fr; /* Sidebar fixed, content flex */
+  grid-template-rows: auto 1fr auto; /* Header/Footer auto, content flex */
+  
+  grid-template-areas:
+    "header header"
+    "main sidebar"
+    "footer footer";
+}
+.grid-template-areas > * { padding: .5rem; border: 1px dashed #000; background: #ebebeb; }
+
+/* Assign the areas */
+.grid-template-areas header  { grid-area: header;  }
+.grid-template-areas aside   { grid-area: sidebar; }
+.grid-template-areas main    { grid-area: main; }
+.grid-template-areas footer  { grid-area: footer; height: auto; }
+
+
+
+.grid-template-areas.one {
+  grid-template-columns: 1fr 3fr;
+  grid-template-areas:
+    "header header"
+    "sidebar main"
+    "footer footer";
+}

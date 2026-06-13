@@ -1,8 +1,19 @@
 .css-grid {
     display: grid;
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns: 2.5fr 1.5fr;
 }
 .css-grid-content { 
-    display: flexbox;
+    display: grid;
+    grid-template-columns: 1fr;
     padding: 2rem;
+    align-content: start;
+}
+.css-grid-content ul,
+.css-grid-content ol {
+    list-style-position: inside;
+}
+.css-grid-content ul {
+    list-style-type: disc;
+    padding-left: 1rem;
+    margin-left: 1rem;
 }

@@ -85,10 +85,10 @@ aside,
 .middle-panel:has(.css-grid) {
   padding: 0 1rem;
 }
-.middle-panel h3, .middle-panel h2 { margin-bottom: 1rem;}
+.middle-panel h3, .middle-panel h2, .middle-panel h4 { margin-bottom: 1rem;}
 .middle-panel h2 { font-size:2.8rem; font-weight: 600;}
 .middle-panel h3 { font-size: 2.2rem; font-weight: 500;}
-.middle-panel h4 { font-size: 2rem; font-weight: 500;}
+.middle-panel h4 { font-size: 2rem; font-weight: 500; line-height: 1.2; }
 .middle-panel p { line-height: 2rem; padding-bottom: 1.2rem;}
 pre{
   background: #f4f4f4;
@@ -125,6 +125,11 @@ footer {
     height: 30vh;
     overflow-y: auto;
   }
+  aside.grid-template-areas,
+  .middle-panel:has(.grid-template-areas) {
+    min-height: auto;
+    height: auto;
+  }
   .left-panel {
     border-right: 1px solid #f3f3f3;
   }
@@ -132,6 +137,17 @@ footer {
     border-left: 1px solid #dcdcdc;
     margin: 0 1rem;
   }
+    .right-panel-list {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 1rem;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+      .right-panel-list li {
+        line-height: 1.4;
+      }
 }
 /***======= Accordian [START] ======***/
 .container {

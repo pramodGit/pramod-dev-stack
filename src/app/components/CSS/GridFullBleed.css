@@ -1,0 +1,16 @@
+.grid-full-bleed-container {
+    display: grid;
+    /* grid-template-columns: 1fr 1fr 1fr 1fr; */
+    grid-template-columns: 1fr min(60ch, 100%) min(60ch, 100%) 1fr;
+    border: 1px solid grey;
+}
+
+.grid-full-bleed-container > * {
+  grid-column: 2 / 4;
+  margin: 1rem 0;
+}
+
+.grid-full-bleed-container .full-bleed {
+    grid-column: 1 / -1;
+}
+hr { margin: 1rem 0; height: .2vh; background-color: aqua; border: none; }

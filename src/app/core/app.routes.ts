@@ -12,7 +12,14 @@ export const routes: Routes = [
     // 1. MOVE SPECIFIC CHILD PATHS UP ABOVE THE DYNAMIC PARAMETER
     { path: 'angular/counterComponent', loadComponent: () => import('../components/counter/counter.component').then(m => m.CounterComponent)},
     { path: 'angular/componentCommunication', loadComponent: () => import('../components/communication/product.component').then(m => m.ProductComponent)},
+    
     { path: 'css/JustifyContentExamples', loadComponent: () => import('../components/CSS/JustifyContentExamples').then(m => m.JustifyContentExamples)},
+    { path: 'css/GridRAMPattern', loadComponent: () => import('../components/CSS/GridRAMPattern').then(m => m.GridRAMPattern)},
+    { path: 'css/GridTemplateAreas', loadComponent: () => import('../components/CSS/GridTemplateAreas').then(m => m.GridTemplateAreas)},
+    { path: 'css/GridFullBleed', loadComponent: () => import('../components/CSS/GridFullBleed').then(m => m.GridFullBleed)},
+    { path: 'css/CSSFunctionMIN', loadComponent: () => import('../components/CSS/CSSFunctionMIN').then(m => m.CSSFunctionMIN)},
+    { path: 'css/CSSGridColumn', loadComponent: () => import('../components/CSS/CSSGridColumn').then(m => m.CSSGridColumn)},
+    
     { path: 'javascript/promiseAsync', loadComponent: () => import('../components/JavaScript/promiseAsync.component').then(m => m.PromiseAsync)},
     { path: 'javascript/asyncPromiseAll', loadComponent: () => import('../components/JavaScript/asyncPromiseAll.component').then(m => m.AsyncPromiseAll)},
     { path: 'javascript/promiseAllSettled', loadComponent: () => import('../components/JavaScript/promiseAll-promiseAllSettled.component').then(m => m.PromiseAllSettled)},
