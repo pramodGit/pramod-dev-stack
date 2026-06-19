@@ -12,6 +12,7 @@ export const routes: Routes = [
     // 1. MOVE SPECIFIC CHILD PATHS UP ABOVE THE DYNAMIC PARAMETER
     { path: 'angular/counterComponent', loadComponent: () => import('../components/counter/counter.component').then(m => m.CounterComponent)},
     { path: 'angular/componentCommunication', loadComponent: () => import('../components/communication/product.component').then(m => m.ProductComponent)},
+    { path: 'angular/signalStateManagement', loadComponent: () => import('../components/counter/signal.state.management').then(m => m.SignalStateManagement)},
     
     { path: 'css/JustifyContentExamples', loadComponent: () => import('../components/CSS/JustifyContentExamples').then(m => m.JustifyContentExamples)},
     { path: 'css/GridRAMPattern', loadComponent: () => import('../components/CSS/GridRAMPattern').then(m => m.GridRAMPattern)},

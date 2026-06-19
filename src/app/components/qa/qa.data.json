@@ -1,6 +1,6 @@
 [
     {
-        "question": "Coding Exercisesss",
+        "question": "Coding Exercises",
         "answer": [
             "<a href='/counterComponent'>Build a simple counter</a>",
             "<a href='/componentCommunication'>Component communication using @Input & @Output / Services</a>"

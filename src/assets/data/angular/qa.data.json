@@ -3,7 +3,8 @@
         "question": "Coding Exercises",
         "answer": [
             "<a href='angular/counterComponent'>Build a simple counter</a>",
-            "<a href='angular/componentCommunication'>Component communication using @Input & @Output / Services</a>"
+            "<a href='angular/componentCommunication'>Component communication using @Input & @Output / Services</a>",
+            "<a href='angular/signalStateManagement'>Signal : State Management</a>"
         ]
     },
     {
