@@ -1,0 +1,13 @@
+pre {
+  padding: 0;
+  line-height: 1;
+}
+b { line-height: 3rem;}
+.grid-1{
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.grid-2{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}

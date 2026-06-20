@@ -1,19 +1,31 @@
-<div class="counter">
-  <h2>Counter: {{ count() }}</h2>
+<div class="grid-2">
+  <div class="counter">
+    <h2>Counter: {{ count() }}</h2>
 
-  <label for="step">Step:</label>
-  <select
-    [value]="step()"
-    (change)="step.set(+$any($event.target).value)">
-    @for (s of steps; track s) {
-      <option [value]="s">{{ s }}</option>
-    }
-  </select>
+    <label for="step">Step:</label>
+    <select
+      [value]="step()"
+      (change)="step.set(+$any($event.target).value)">
+      @for (s of steps; track s) {
+        <option [value]="s">{{ s }}</option>
+      }
+    </select>
 
-  <div class="buttons">
-    <button type="button" (click)="decrement()">-</button>
-    <button type="button" (click)="increment()">+</button>
-    <button type="button" (click)="reset()">Reset</button>
+    <div class="buttons">
+      <button type="button" (click)="decrement()">-</button>
+      <button type="button" (click)="increment()">+</button>
+      <button type="button" (click)="reset()">Reset</button>
+    </div>
   </div>
+
+  <pre>
+    <code>
+      {{ codeTS }}
+    </code>
+  </pre>
 </div>
-<a href="https://dev.react.pramod.click/counterWithStep" target="_blank">Same in React</a>
+
+<div class="grid-1">
+  <b><a href="https://dev.react.pramod.click/counterWithStep" target="_blank">React Implementaion</a></b>
+  <b>signal() → useState</b>
+</div>
