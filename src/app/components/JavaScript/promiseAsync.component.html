@@ -1,9 +1,9 @@
 <a routerLink="/javascript">Back</a>
 <h2>Async and Promise</h2>
 <h3>Promise makes simple implementation of callback and provides 'then' keyword to create callback chain</h3>
-
+<h4>It used to perform a sequence of asynchronous operations one after the other but imapcted by delay of the execution.</h4>
 <pre><code [textContent]="codeSnippet1"></code></pre>
 
 <h3>ECMAScript 2017/ES8 introduced more simple way to implement Promise and Promise chain...</h3>
-
+<p><b>await</b> pauses the async function at that point until the <b>awaited promise settles</b>. It does not delay the creation or execution of other promises that have already been started. Therefore, the <b>order</b> of <b>await</b> affects the <b>order of result processing</b>, while the timing of <b>promise</b> creation affects when the <b>asynchronous work begins</b>.</p>
 <pre><code [textContent]="codeSnippet2"></code></pre>
