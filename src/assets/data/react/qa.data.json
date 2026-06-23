@@ -43,8 +43,47 @@
         "answer": ["useCallback: Memoizes the function reference.<pre>const memoizedCallback = useCallback(() => handleClick(a), [a]);</pre>"]
     },
     {
-        "question": "When to use useCallback",
-        "answer": "If passing functions to children like -> <pre>return &lt;Button onClick={handleClick} /&gt;</pre>Even if nothing changed, Button will re-render because handleClick is a new function each time. <br />So Parent with useCallback -> <pre>const handleClick = useCallback(() => {}</pre>Now, Button won't re-render unnecessarily."
+        "question": "When useCallback is Useful",
+        "answer": [
+            "Function passed to a React.memo child <br /> <pre><code>&lt;Child onSave={handleSave} /></code></pre>",
+            "Function used in a dependency array <br /> <pre><code>useEffect(() => { ... }, [handleSave]);",
+            "Expensive child re-renders"
+        ]
+    },
+    {
+        "question": "A re-render in React means",
+        "answer": [
+            "A re-render means React calls the function again: \n   <pre><code>Parent(); // Render 1\nParent(); // Render 2\nParent(); // Render 3</code></pre>",
+            "Everything inside function runs again:\n<pre><code>const handleClick = () => {};</code></pre>",
+            "which creates a new function object each time."
+        ]
+    },
+    {
+        "question": "When Does a Parent Re-render?",
+        "answer": [
+            "Its own state changes:<pre><code>function Parent() {\n  const [count, setCount] = useState(0);\n  return (\n    <>\n      &lt;button onClick={() => setCount(count + 1)}>\n        Increment\n      &lt;/button>\n \n     &lt;Child />\n    &lt;/>\n  );\n}</code></pre>\n Clicking the button causes the re-render",
+            "Its props change<pre><code>function App() {\n const [theme, setTheme] = useState('light');\n return &lt;Parent theme={theme} />;\n}</code></pre>When theme changes:<pre><code>App re-renders\n↓\nParent receives new props\n↓\nParent re-renders</code></pre>",
+            "Context value changes<pre><code>const ThemeContext = createContext();</code></pre><pre><code>function Parent() {\n const theme = useContext(ThemeContext);\n return <Child />;\n}</code></pre>When the context value changes:<pre><code>Context updated\n↓\nParent re-renders</code></pre>"
+        ]
+    },
+   {
+        "question": "How to use useCallback to prevent re-render a child component",
+        "answer": [
+            "useCallback provides a stable function reference, but by itself it does not prevent a child component from re-rendering. React.memo is what gives React the ability to skip re-rendering the child when its props haven't changed.\n           <pre><code>\n                same handleClick reference \n                ↓ React.memo compares props\n                ↓ onClick unchanged\n                ↓ Child render skipped\n            <\/code><\/pre>",
+            "With memo + useCallback:\n     <pre><code>\nimport { memo, useCallback } from 'react';\n\nconst Child = memo(function Child({ onClick }) {\n  console.log('Child Rendered');\n  return &lt;button onClick={onClick}&gt;Click&lt;/button&gt;;\n});\n\n\/\/ Inside Parent:\nconst handleClick = useCallback(() =&gt; {\n  console.log('click');\n}, []);\n\n&lt;Child onClick={handleClick} /&gt;\n     <\/code><\/pre>",
+            "Now when Parent re-renders:<pre><code>Parent renders\n↓\nReact.memo compares props\n↓\nIf props changed -> Child renders\nIf props unchanged -> Child skips render"
+        ]
+    },
+    {
+        "question": "How would you manage API data fetching in a React application",
+        "answer": ["For server state, I prefer TanStack Query because it provides caching, background refetching, retries, request deduplication, optimistic updates, and loading/error management out of the box."]
+    },
+    {
+        "question": "How to handle Race condition during API data fetching in React",
+        "answer": [
+            "Solution 1: AbortController (Recommended)",
+            "Solution 2: Ignore Old Responses"
+        ]
     },
     {
         "question": "What are props in React",
