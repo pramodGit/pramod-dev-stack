@@ -1,0 +1,65 @@
+<a routerLink="/javascript">Back</a>
+<h2>Lets understand the chains interleave</h2>
+<h3>What is the output and Why</h3>
+<pre><code>{{ codeBlock1 }}</code></pre>
+<h4>The output is:</h4>
+<pre><code>
+    1
+    3
+    2
+    4
+</code></pre>
+<h3>Why?</h3>
+<p><b>Promise.resolve()</b> creates an already-fulfilled promise, but <b>.then(...)</b> callbacks are <b>always scheduled as microtasks</b> and do not run immediately.</p>
+<p>Let's walk through it.</p>
+<h4>Initial synchronous execution</h4>
+<pre>
+    <code>
+        let promise1 = Promise.resolve();
+        let promise2 = Promise.resolve();
+    </code>
+</pre>
+<p>Both promises are already fulfilled. Then:</p>
+<pre>
+    <code>
+        promise1
+            .then(() => console.log(1))
+            .then(() => console.log(2));
+    </code>
+</pre>
+<p>The first <b>.then(() => console.log(1))</b> is attached to an already-fulfilled promise, so a microtask is queued to run <b>console.log(1)</b>.</p>
+<p>The second <b>.then(() => console.log(2))</b> is attached to the promise returned by the first <b>.then()</b>. That returned promise is <b>not fulfilled yet</b>, so nothing is queued for 2 yet.</p>
+<p>Similarly:</p>
+<pre>
+    <code>
+        promise2
+            .then(() => console.log(3))
+            .then(() => console.log(4));
+    </code>
+</pre>
+<p>Queues a microtask for <b>console.log(3)</b>. The callback for <b>4</b> waits for the promise returned by the previous <b>.then()</b>.</p>
+<p>At the end of synchronous code, the microtask queue contains:</p>
+<pre><code>[ log(1), log(3) ]</code></pre>
+<h4>Processing microtasks</h4>
+<h5>Microtask 1: log(1)</h5>
+<pre><code>1</code></pre>
+<p>When this callback completes, the promise returned by the first .then() becomes fulfilled, which queues the next callback:</p>
+<pre><code>Queue: [ log(3), log(2) ]</code></pre>
+<h5>Microtask 2: log(3)</h5>
+<pre><code>3</code></pre>
+<p>Its completion fulfills the next promise in that chain, queuing log(4):</p>
+<pre><code>Queue: [ log(2), log(4) ]</code></pre>
+<h5>Microtask 3: log(2)</h5>
+<pre><code>2</code></pre>
+<h5>Microtask 4: log(4)</h5>
+<pre><code>4</code></pre>
+<h4>Mental model</h4>
+<p>Think of each promise chain as:</p>
+<pre>
+    <code>
+        promise1: 1 → 2
+        promise2: 3 → 4
+    </code>
+</pre>
+<p>The first callbacks (<b>1</b> and <b>3</b>) are queued immediately. The second callbacks (<b>2</b> and <b>4</b>) can only be queued after their preceding callback finishes. Because microtasks are processed FIFO, the chains interleave:</p>
+<pre><code>1, 3, 2, 4</code></pre>
