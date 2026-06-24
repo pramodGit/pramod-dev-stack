@@ -15,6 +15,16 @@
         "answer": "JavaScript is a loosely typed language, meaning variables are defined and their types are determined at runtime. Unlike dynamic typing, where types are determined at runtime, static typing allows TypeScript to catch type-related errors early during development, improving code quality and reducing bugs."
     },
     {
+        "question": "Why TypeScript when JavaScript already exists?",
+        "answer": [
+            "Static typing with type inference.<br /> Types are explicitly defined and checked at compile-time<pre><code>let age = 10;</code><br />// TypeScript will use type inference to look at the value 10\n and automatically assign the type number to the variable age.\n You do not need to explicitly write : number.</pre>",
+            "Compile-time error detection.<pre><code>age = \"hello\"; // Compile Error</code></pre>",
+            "Better IDE support",
+            "Refactoring support\n      <ul><li>Rename Symbol: unlike a risky \"Find and Replace\"</li><li>Extract Function/Method: automatically calculates parameters</li><li>Extract Constant: The hardcoded values are now dedicated</li><li>Move to New File: automatically rewrites all import</li></ul>",
+            "Better maintainability in large applications"
+        ]
+    },
+    {
         "question": "What is Memoization?",
         "answer": "Memoization is a smart way to make your functions faster by storing and reusing their past results."
     },
