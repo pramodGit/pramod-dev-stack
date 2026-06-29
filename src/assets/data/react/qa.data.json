@@ -36,7 +36,10 @@
     },
     { 
         "question": "Debouncing Event Handlers",
-        "answer": ["When handling high-frequency events like typing (onChange) or scrolling (onScroll), it's smart to debounce or throttle.<pre>import { debounce } from 'lodash';<br />const handleSearch = useCallback(debounce((e) => {<br /> console.log('Searching for:', e.target.value);<br />}, 500),[]); <br />return &lt;input type='text' onChange={handleSearch} /&gt;;</pre>"]
+        "answer": [
+            "When handling high-frequency events like typing (onChange) or scrolling (onScroll), it's smart to debounce or throttle.<pre>import { debounce } from 'lodash';<br />const handleSearch = useCallback(debounce((e) => {<br /> console.log('Searching for:', e.target.value);<br />}, 500),[]); <br />return &lt;input type='text' onChange={handleSearch} /&gt;;</pre>",
+            "<p>Robust version that fixes the stale-closure risk and cleans up properly:</p>\n<pre><code>import { useMemo, useEffect, useRef, useCallback } from 'react';\nimport { debounce } from 'lodash';\nfunction SearchInput() {\n  // keep latest logic in a ref so the debounced fn never goes stale\n  const handleChangeRef = useRef((value) => {\n    console.log('Searching for:', value);\n  });\n\n  // create the debounced function once, stable across re-renders\n  const debouncedSearch = useMemo(\n    () =>\n      debounce((value) => {\n        handleChangeRef.current(value);\n      }, 500),\n    []\n  );\n\n  // cancel any pending call on unmount\n  useEffect(() => {\n    return () => {\n      debouncedSearch.cancel();\n    };\n  }, [debouncedSearch]);\n\n  const handleSearch = useCallback(\n    (e) => {\n      debouncedSearch(e.target.value);\n    },\n    [debouncedSearch]\n  );\n\n  return &lt;input type=\"text\" onChange={handleSearch} />;\n}\n\nexport default SearchInput;</code></pre>"
+        ]
     },
     {
         "question": "What is useCallback",
