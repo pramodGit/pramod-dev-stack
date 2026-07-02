@@ -1,0 +1,26 @@
+<div class="api-demo">
+  <h2>API State Demo</h2>
+
+  <p class="message">{{ getUiMessage(state()) }}</p>
+
+  <button (click)="fetchUser(false)">Fetch User (Success)</button>
+  <button (click)="fetchUser(true)">Fetch User (Fail)</button>
+  <button (click)="reset()">Reset</button>
+
+  <div class="status-box">
+    @switch (state().status) {
+      @case ('idle') {
+        <div>🔵 Idle — click a button to start</div>
+      }
+      @case ('loading') {
+        <div>⏳ Loading... please wait</div>
+      }
+      @case ('success') {
+        <div>✅ User loaded successfully!</div>
+      }
+      @case ('error') {
+        <div>❌ Something went wrong</div>
+      }
+    }
+  </div>
+</div>

@@ -27,6 +27,8 @@ export const routes: Routes = [
     { path: 'javascript/jsHOC', loadComponent: () => import('../components/JavaScript/jsHOC.component').then(m => m.jsHOCComponent)},
     { path: 'javascript/promiseMicrotask', loadComponent: () => import('../components/JavaScript/promiseMicrotask.component').then(m => m.promiseMicrotaskComponent)},
     
+    { path: 'typescript/unionStateModeling', loadComponent: () => import('../components/typescript/unionStateModeling').then(m => m.UnionStateModeling)},
+    
     // 2. PLACED LOWER: Dynamic parameter catchall
     { path: ':category', loadComponent: () => import('../components/qa/qa.component').then(m => m.QuestionsAnswers)},
     

@@ -7,7 +7,8 @@
             "<a href='javascript/asyncPromiseAll'>Async await vs Promise.all</a>",
             "<a href='javascript/promiseAllSettled'>Promise.all vs Promise.allSettled</a>",
             "<a href='javascript/jsHOC'>JavaScript Higher Order Functions</a>",
-            "<a href='javascript/promiseMicrotask'>Promise callbacks as Microtask</a>"
+            "<a href='javascript/promiseMicrotask'>Promise callbacks as Microtask</a>",
+            "TypeScript\n<ul><li><a href='typescript/unionStateModeling'>API State Union type</a></li></ul>"
         ]
     },
     {
@@ -17,7 +18,7 @@
     {
         "question": "Why TypeScript when JavaScript already exists?",
         "answer": [
-            "Static typing with type inference.<br /> Types are explicitly defined and checked at compile-time<pre><code>let age = 10;</code><br />// TypeScript will use type inference to look at the value 10\n and automatically assign the type number to the variable age.\n You do not need to explicitly write : number.</pre>",
+            "Static typing with type inference.<br /> Static typing is a programming feature where the data type of a variable is checked and enforced at compile time rather than at runtime. Types are explicitly defined and checked at compile-time.<pre><code>let age = 10;</code><br />// TypeScript will use type inference to look at the value 10\n and automatically assign the type number to the variable age.\n You do not need to explicitly write : number.</pre>",
             "Compile-time error detection.<pre><code>age = \"hello\"; // Compile Error</code></pre>",
             "Better IDE support",
             "Refactoring support\n      <ul><li>Rename Symbol: unlike a risky \"Find and Replace\"</li><li>Extract Function/Method: automatically calculates parameters</li><li>Extract Constant: The hardcoded values are now dedicated</li><li>Move to New File: automatically rewrites all import</li></ul>",
