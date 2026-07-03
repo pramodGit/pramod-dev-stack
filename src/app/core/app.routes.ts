@@ -28,6 +28,7 @@ export const routes: Routes = [
     { path: 'javascript/promiseMicrotask', loadComponent: () => import('../components/JavaScript/promiseMicrotask.component').then(m => m.promiseMicrotaskComponent)},
     
     { path: 'typescript/unionStateModeling', loadComponent: () => import('../components/typescript/unionStateModeling').then(m => m.UnionStateModeling)},
+    { path: 'typescript/promiseAllTypescript', loadComponent: () => import('../components/typescript/promiseAll-typescript.component').then(m => m.PromiseAllTypescript)},
     
     // 2. PLACED LOWER: Dynamic parameter catchall
     { path: ':category', loadComponent: () => import('../components/qa/qa.component').then(m => m.QuestionsAnswers)},

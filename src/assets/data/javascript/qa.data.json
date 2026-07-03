@@ -8,7 +8,7 @@
             "<a href='javascript/promiseAllSettled'>Promise.all vs Promise.allSettled</a>",
             "<a href='javascript/jsHOC'>JavaScript Higher Order Functions</a>",
             "<a href='javascript/promiseMicrotask'>Promise callbacks as Microtask</a>",
-            "TypeScript\n<ul><li><a href='typescript/unionStateModeling'>API State Union type</a></li></ul>"
+            "TypeScript\n<ul><li><a href='typescript/unionStateModeling'>API State Union type</a></li><li><a href='typescript/promiseAllTypescript'>Promise in typescript</a></li></ul>"
         ]
     },
     {

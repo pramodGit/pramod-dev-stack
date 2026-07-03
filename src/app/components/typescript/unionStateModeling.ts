@@ -1,4 +1,5 @@
 import { Component, signal } from "@angular/core";
+import { RouterLink } from '@angular/router';
 
 // --- State modeling ---
 type Idle = {
@@ -29,7 +30,8 @@ type User = {
 @Component({
     selector: 'app-union-state-modeling',
     templateUrl: './unionStateModeling.html',
-    standalone: true
+    standalone: true,
+    imports: [RouterLink]
 })
 export class UnionStateModeling {
 
@@ -75,4 +77,47 @@ export class UnionStateModeling {
     reset(): void {
         this.state.set({ status: 'idle' });
     }
+
+    codeSnippet1 = `
+        type Idle = {
+            status: 'idle';
+        };
+
+        type Loading = {
+            status: 'loading';
+        };
+
+        type Success<T> = {
+            status: 'success';
+            data: T;
+        };
+
+        type Error = {
+            status: 'error';
+            error: string;
+        };
+
+        type ApiState<T> = Idle | Loading | Success<T> | Error;
+
+        type User = {
+            id: number;
+            name: string;
+        };
+        //
+        getUiMessage<T>(state: ApiState<T>): string {
+            switch (state.status) {
+                case 'idle':
+                    return 'Waiting to start…';
+                case 'loading':
+                    return 'Loading…';
+                case 'success':
+                    return \`Success! Got: \${JSON.stringify(state.data)}\`;
+                case 'error':
+                    return \`Something went wrong: \${state.error}\`;
+                default:
+                    const _exhaustiveCheck: never = state;
+                    return _exhaustiveCheck;
+            }
+        }
+    `;
 }

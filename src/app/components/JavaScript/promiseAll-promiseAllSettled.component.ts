@@ -83,4 +83,23 @@ export class PromiseAllSettled {
             cart: { status: 'fulfilled', value: { id: 120, item: 'Pen' } }
         }
     `;
+
+    codeSnippet8 = `
+        const P1 = new Promise(resolve => {
+                resolve("Promise 1 resolved");
+            }
+        );
+        const P2 = new Promise(reject => {
+                reject("Promise 2 rejected");
+            }
+        );
+
+        async function allF () {
+            const [R1, R2] = await Promise.all([P1, P2]);
+            console.log(R1);
+            console.log(R2);
+        }
+
+        allF();
+    `;
 }
