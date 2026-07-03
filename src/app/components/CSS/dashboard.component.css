@@ -17,3 +17,33 @@
     padding-left: 1rem;
     margin-left: 1rem;
 }
+.card {
+  border-radius: 8px;
+  padding: 24px;
+  background: #FAFBFD;
+  box-shadow:
+    0 0 0 1px #DDE3EE,
+    0 1px 3px rgba(30, 50, 100, 0.06),
+    0 4px 16px rgba(30, 50, 100, 0.10);
+  transition: box-shadow 0.15s ease;
+}
+.card:hover {
+  box-shadow:
+    0 0 0 1px #BCC6DA,
+    0 2px 6px rgba(30, 50, 100, 0.08),
+    0 8px 24px rgba(30, 50, 100, 0.12);
+}
+.card-border {
+    padding: 24px;
+    border-radius: 8px;
+    background: #fafbfd;
+    border: 1px solid #dde3ee;
+    box-shadow: 0 4px 16px rgba(30, 50, 100, 0.1);
+}
+/* Version B: border folded into box-shadow */
+.card-hairline {
+    padding: 24px;
+    border-radius: 8px;
+    background: #fafbfd;
+    box-shadow: 0 0 0 1px #dde3ee, 0 4px 16px rgba(30, 50, 100, 0.1);
+}
