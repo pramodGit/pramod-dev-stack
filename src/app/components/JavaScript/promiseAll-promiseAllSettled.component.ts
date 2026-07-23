@@ -85,21 +85,37 @@ export class PromiseAllSettled {
     `;
 
     codeSnippet8 = `
-        const P1 = new Promise(resolve => {
-                resolve("Promise 1 resolved");
-            }
-        );
-        const P2 = new Promise(reject => {
-                reject("Promise 2 rejected");
-            }
-        );
+        async function getDashboardData(userId) {
+            const results = await Promise.allSettled([
+                fetch(`/api/user/${userId}`).then(res => {
+                    if (!res.ok) throw new Error(`User fetch failed: ${res.status}`);
+                    return res.json();
+                }),
+                fetch(`/api/orders/${userId}`).then(res => {
+                    if (!res.ok) throw new Error(`Order fetch failed: ${res.status}`);
+                    return res.json();
+                }),
+                fetch(`/api/notifications/${userId}`).then(res => {
+                    if (!res.ok) throw new Error(`Notification fetch failed: ${res.status}`);
+                    return res.json();
+                }),
+            ]);
 
-        async function allF () {
-            const [R1, R2] = await Promise.all([P1, P2]);
-            console.log(R1);
-            console.log(R2);
-        }
+            const [userResult, ordersResult, notificationsResult] = results;
+            return {
+                user: userResult.status === 'fulfilled' ? userResult.value : null,
+                orders: ordersResult.status === 'fulfilled' ? ordersResult.value : [],
+                notifications: notificationsResult.status === 'fulfilled' ? notificationsResult.value : [],
+                errors: results
+                    .filter(r => r.status === 'rejected')
+                    .map(r => r.reason),
+                };
+            }
 
-        allF();
+            async function main() {
+                const dashboardData = await getDashboardData(2);
+                console.log(dashboardData);
+            }
+            main();
     `;
 }
