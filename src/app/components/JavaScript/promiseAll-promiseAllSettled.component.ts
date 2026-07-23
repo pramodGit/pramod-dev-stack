@@ -87,16 +87,16 @@ export class PromiseAllSettled {
     codeSnippet8 = `
         async function getDashboardData(userId) {
             const results = await Promise.allSettled([
-                fetch(`/api/user/${userId}`).then(res => {
-                    if (!res.ok) throw new Error(`User fetch failed: ${res.status}`);
+                fetch(\`/api/user/\${userId}\`).then(res => {
+                    if (!res.ok) throw new Error(\`User fetch failed: \${res.status}\`);
                     return res.json();
                 }),
-                fetch(`/api/orders/${userId}`).then(res => {
-                    if (!res.ok) throw new Error(`Order fetch failed: ${res.status}`);
+                fetch(\`/api/orders/\${userId}\`).then(res => {
+                    if (!res.ok) throw new Error(\`Order fetch failed: \${res.status}\`);
                     return res.json();
                 }),
-                fetch(`/api/notifications/${userId}`).then(res => {
-                    if (!res.ok) throw new Error(`Notification fetch failed: ${res.status}`);
+                fetch(\`/api/notifications/\${userId}\`).then(res => {
+                    if (!res.ok) throw new Error(\`Notification fetch failed: \${res.status}\`);
                     return res.json();
                 }),
             ]);
